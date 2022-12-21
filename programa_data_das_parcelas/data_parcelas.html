@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas das parcelas</title>
+</head>
+
+<body>
+
+    <script>
+        var parcelas = Number(prompt("Quantas Parcelas? "));
+        var lista = ""; // irá acumular as parcelas
+        var dia, mes, ano, diaZero, mesZero;
+        var data = new Date(); // data atual
+        for (var i = 1; i <= parcelas; i++) {
+            data.setMonth(data.getMonth() + 1); // aumenta um mês na data
+            dia = data.getDate();
+            mes = data.getMonth() + 1; // mês varia de 0 a 11, por isso, +1
+            ano = data.getFullYear();
+            diaZero = dia < 10 ? "0" + dia : dia; // acrescenta 0 se dia menor que 10
+            mesZero = mes < 10 ? "0" + mes : mes; // acrescenta 0 se mês menor que 10
+            // concatena as parcelas na variável linha, com uma quebra de linha ao final
+            lista += i + "ª Parcela: " + diaZero + "/" + mesZero + "/" + ano +
+                "\n";
+        }
+        alert(lista); // exibe as parcelas
+    </script>
+
+</body>
+
+</html>
